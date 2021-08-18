@@ -1,0 +1,13 @@
+<section class="section">
+  <h2 class="section_title font_blue">New Record for Body Weights</h2>
+
+  <%= form_tag("/body/create") do %>
+  <div class="form">
+    <label for="body_weight">Body Weight</label>
+    <input type="number" name="body_weight" step="0.1" class="body_weight" />
+    <label for="date">Date</label>
+    <input type="date" name="date" value="<%= @today %>">
+    <input type="submit" value="Save" class="btn" />
+  </div>
+  <% end %>
+</section>

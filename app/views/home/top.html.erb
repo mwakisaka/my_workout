@@ -1,0 +1,15 @@
+<!-- firstV -->
+<section class="first_v">
+  <img src="/assets/first_v.jpg" />
+  <div class="top_message">
+    <h1 class="font_blue">
+      Improve Your Training with <span class="top_title">My Workout</span>
+    </h1>
+    <% if !session[:user_id] %>
+    <%= link_to("Login", "/login", class: "btn") %>
+    <% else %>
+    <%= link_to("Logout", "/logout", class: "btn") %>
+    <% end %>
+  </div>
+</section>
+<!-- //firstV -->

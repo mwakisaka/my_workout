@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MyWorkout</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header font_white">
+    <div class="header_wrapper">
+      <div class="header_left">
+        <%= link_to("My Workout", "/", class:"font_white") %>
+      </div>
+      <div class="header_right">
+        <ul class="content_nav">
+          <% if session[:user_id] %>
+          <li class="font_white"><%= link_to("Body Weights", "/body/#{@current_user.id}", class: "font_white") %></li>
+          <li class="font_white"><%= link_to("Workout Weights", "/workout/#{@current_user.id}", class: "font_white") %></li>
+          <li class="font_white user_edit_link">
+            <%=link_to("Login User: #{@current_user.name}", "/users/#{@current_user.id}/edit") %>
+          </li>
+          <% end %>
+        </ul>
+        <% if !session[:user_id] %>
+        <%= link_to("Login", "/login", class: "header_nav font_white") %>
+        <%= link_to("Signup", "/signup", class: "eader_nav font_white") %>
+        <% else %>
+        <%= link_to("Logout", "/logout", class: "header_nav_logout font_white") %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+  <!-- // header -->
+
+  <!-- flash_message -->
+  <% if notice %>
+  <div class="flash_message font_white">
+    <%= notice %>
+  </div>
+  <% end %>
+  <!-- flash_message -->
+
+  <%= yield %>
+</body>
+
+</html>

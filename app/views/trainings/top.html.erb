@@ -1,0 +1,15 @@
+<section class="section">
+  <h2 class="section_title font_blue">Workout Weights</h2>
+
+  <%= link_to("New Workout Record", "/workout/#{@current_user.id}/workoutweights", class: "btn") %>
+
+  <%= month_calendar events: @trainings do |date, trainings| %>
+  <%= date.day %>日<br>
+  <% trainings.each do |training| %>
+  <%= link_to("•#{training.event}
+  -#{training.weight}kg×#{training.reps}reps", "/workout/#{training.id}/edit") %><br>
+  <br>
+  <% end %>
+  <% end %>
+
+</section>

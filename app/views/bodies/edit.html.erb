@@ -1,0 +1,19 @@
+<section class="section">
+  <h2 class="section_title font_blue">Body Weights Edit</h2>
+
+  <%= form_tag("/body/#{@body.id}/update") do %>
+  <div class="form">
+    <label for="weight">Body Weight</label>
+    <input type="text" name="weight" value="<%= @body.weight %>">
+    <label for="date">Date</label>
+    <input type="date" name="date" value="<%= @body.start_time %>">
+    <input class="btn" type="submit" value="Save" />
+  </div>
+  <% end %>
+
+    <p class="delete_text">
+    Delete this record?
+    <%= link_to("click here", "/body/#{@body.id}/delete", class:"delete_link") %>
+  </p>
+
+</section>

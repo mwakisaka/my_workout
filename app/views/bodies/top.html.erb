@@ -1,0 +1,14 @@
+<section class="section">
+  <h2 class="section_title font_blue">Body Weights</h2>
+
+  <%= link_to("New Body Record", "/body/#{@current_user.id}/bodyweights", class: "btn") %>
+
+  <%= month_calendar events: @bodies do |date, bodies| %>
+  <%= date.day %>日<br>
+  <% bodies.each do |body| %>
+  <%= link_to("#{body.weight}kg", "/body/#{body.id}/edit") %>
+  <br>
+  <% end %>
+  <% end %>
+
+</section>
